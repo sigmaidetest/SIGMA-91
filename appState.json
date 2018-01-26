@@ -22,13 +22,14 @@
         "children": [],
         "isRemovable": true,
         "filePath": "SIGMA-91/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nexports.handler = function(event, context, callback) {\n\n\n\tcallback(null,'Successfully executed');\n}",
+        "code": "let AWS = require('aws-sdk');\nconst s3 = new AWS.S3();\nexports.handler = function (event, context, callback) {\n\ts3.listObjects({\n\t\t'Bucket': 's3-lambda-s3',\n\t\t'MaxKeys': 10,\n\t\t'Prefix': ''\n\t}).promise()\n\t\t.then(data => {\n\t\t\tconsole.log(data);           // successful response\n\t\t\t/*\n\t\t\tdata = {\n\t\t\t Contents: [\n\t\t\t\t{\n\t\t\t\t   ETag: \"\\\\\"70ee1738b6b21e2c8a43f3a5ab0eee71\\\\\"\",\n\t\t\t\t   Key: \"example1.jpg\",\n\t\t\t\t   LastModified: <Date Representation>,\n\t\t\t\t   Owner: {\n\t\t\t\t\t  DisplayName: \"myname\",\n\t\t\t\t\t  ID: \"12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc\"\n\t\t\t\t   },\n\t\t\t\t   Size: 11,\n\t\t\t\t   StorageClass: \"STANDARD\"\n\t\t\t\t},\n\t\t\t\t{...}\n\t\t\t*/\n\t\t})\n\t\t.catch(err => {\n\t\t\tconsole.log(err, err.stack); // an error occurred\n\t\t});\n\tcallback(null, 'Successfully executed');\n}",
         "resources": [
+          "s3s3LambdaS3Data",
           "s3s3LambdaS3"
         ],
         "triggers": [
           {
-            "resourceName": "s3s3LambdaS3",
+            "resourceName": "s3s3LambdaS3Data",
             "config": {
               "type": "s3:ObjectCreated:*",
               "keyPrefix": "",
@@ -51,6 +52,33 @@
           "bucket": {
             "region": "us-east-1",
             "name": "s3-lambda-s3"
+          }
+        },
+        "globallyEditable": false,
+        "usage": {
+          "b1e5c113-df23-4e66-ae76-9ab6201dbc2d": {
+            "operations": {
+              "listObjects": [
+                {
+                  "Bucket": "s3-lambda-s3",
+                  "MaxKeys": 10,
+                  "Prefix": ""
+                }
+              ]
+            },
+            "occurrence": 1,
+            "triggers": []
+          }
+        }
+      },
+      "s3s3LambdaS3Data": {
+        "name": "s3s3LambdaS3Data",
+        "type": "S3",
+        "config": {
+          "mode": 1,
+          "bucket": {
+            "region": "us-east-1",
+            "name": "s3-lambda-s3-data"
           }
         },
         "globallyEditable": false,
@@ -83,7 +111,8 @@
         }
       }
     },
-    "changeExistingProject": false
+    "changeExistingProject": false,
+    "additionalFiles": []
   },
   "PROJECT_META": {
     "projectName": "SIGMA-91",
@@ -91,6 +120,6 @@
     "projectVersion": "1.0.0",
     "repoName": "SIGMA-91",
     "repoUrl": "https://github.com/sigmaidetest/SIGMA-91",
-    "lastSave": 1516962978827
+    "lastSave": 1516963618160
   }
 }
