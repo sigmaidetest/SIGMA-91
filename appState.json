@@ -82,7 +82,7 @@
     },
     "rootNode": "5884df91-a573-49f0-bb20-ad526c6e08df",
     "openFiles": [
-      "a9f54b79-0ea7-40bf-8119-3904f6fb56ef"
+      "b1e5c113-df23-4e66-ae76-9ab6201dbc2d"
     ],
     "resources": {
       "s3s3LambdaS3": {
@@ -136,63 +136,6 @@
             ]
           }
         }
-      },
-      "cwefa": {
-        "name": "cwefa",
-        "type": "CLOUD_WATCH",
-        "config": {
-          "mode": 0,
-          "name": "fa",
-          "description": "",
-          "eventPattern": {
-            "source": [
-              "aws.health"
-            ],
-            "detail-type": [
-              "AWS Health Event"
-            ],
-            "detail": {
-              "service": [
-                "ACM",
-                "APIGATEWAY",
-                "AUTOSCALING"
-              ],
-              "eventTypeCategory": [
-                "Issue"
-              ],
-              "Resources": [
-                "faf"
-              ]
-            }
-          }
-        },
-        "globallyEditable": true,
-        "usage": {}
-      },
-      "cwefafa2": {
-        "name": "cwefafa2",
-        "type": "CLOUD_WATCH",
-        "config": {
-          "mode": 0,
-          "name": "fafa2",
-          "description": "",
-          "eventPattern": {
-            "source": [
-              "aws.autoscaling"
-            ],
-            "detail-type": [
-              "Instance Launch and Terminate"
-            ],
-            "detail": {
-              "eventType": [
-                "EC2 Instance Terminate Successful",
-                "EC2 Instance Launch Unsuccessful"
-              ]
-            }
-          }
-        },
-        "globallyEditable": true,
-        "usage": {}
       },
       "cwetak": {
         "name": "cwetak",
@@ -264,10 +207,10 @@
         }
       }
     },
-    "changeExistingProject": false,
+    "changeExistingProject": true,
     "additionalFiles": [],
     "lambdaId": "b1e5c113-df23-4e66-ae76-9ab6201dbc2d",
-    "currentFileId": "a9f54b79-0ea7-40bf-8119-3904f6fb56ef"
+    "currentFileId": "b1e5c113-df23-4e66-ae76-9ab6201dbc2d"
   },
   "PROJECT_META": {
     "projectName": "SIGMA-91",
@@ -275,6 +218,6 @@
     "projectVersion": "1.0.0",
     "repoName": "SIGMA-91",
     "repoUrl": "https://github.com/sigmaidetest/SIGMA-91",
-    "lastSave": 1517216657611
+    "lastSave": 1517220247490
   }
 }
