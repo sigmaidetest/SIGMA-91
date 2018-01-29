@@ -8,7 +8,8 @@
         "type": "DIRECTORY",
         "isDirectory": true,
         "children": [
-          "b1e5c113-df23-4e66-ae76-9ab6201dbc2d"
+          "b1e5c113-df23-4e66-ae76-9ab6201dbc2d",
+          "a9f54b79-0ea7-40bf-8119-3904f6fb56ef"
         ],
         "isRemovable": false,
         "filePath": "SIGMA-91"
@@ -37,11 +38,51 @@
             }
           }
         ]
+      },
+      "a9f54b79-0ea7-40bf-8119-3904f6fb56ef": {
+        "id": "a9f54b79-0ea7-40bf-8119-3904f6fb56ef",
+        "parent": "5884df91-a573-49f0-bb20-ad526c6e08df",
+        "name": "rak.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "SIGMA-91/rak.js",
+        "code": "let AWS = require('aws-sdk');\nexports.handler = function(event, context, callback) {\n\tcallback(null,'Successfully executed');\n}",
+        "resources": [
+          "cwetak"
+        ],
+        "triggers": [
+          {
+            "resourceName": "cwetak",
+            "config": {
+              "mode": 0,
+              "name": "tak",
+              "description": "",
+              "eventPattern": {
+                "source": [
+                  "aws.s3"
+                ],
+                "detail-type": [
+                  "AWS API Call via CloudTrail"
+                ],
+                "detail": {
+                  "eventName": [
+                    "DeleteBucket"
+                  ],
+                  "eventSource": [
+                    "s3.amazonaws.com"
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "rootNode": "5884df91-a573-49f0-bb20-ad526c6e08df",
     "openFiles": [
-      "b1e5c113-df23-4e66-ae76-9ab6201dbc2d"
+      "a9f54b79-0ea7-40bf-8119-3904f6fb56ef"
     ],
     "resources": {
       "s3s3LambdaS3": {
@@ -95,6 +136,118 @@
             ]
           }
         }
+      },
+      "cwefa": {
+        "name": "cwefa",
+        "type": "CLOUD_WATCH",
+        "config": {
+          "mode": 0,
+          "name": "fa",
+          "description": "",
+          "eventPattern": {
+            "source": [
+              "aws.health"
+            ],
+            "detail-type": [
+              "AWS Health Event"
+            ],
+            "detail": {
+              "service": [
+                "ACM",
+                "APIGATEWAY",
+                "AUTOSCALING"
+              ],
+              "eventTypeCategory": [
+                "Issue"
+              ],
+              "Resources": [
+                "faf"
+              ]
+            }
+          }
+        },
+        "globallyEditable": true,
+        "usage": {}
+      },
+      "cwefafa2": {
+        "name": "cwefafa2",
+        "type": "CLOUD_WATCH",
+        "config": {
+          "mode": 0,
+          "name": "fafa2",
+          "description": "",
+          "eventPattern": {
+            "source": [
+              "aws.autoscaling"
+            ],
+            "detail-type": [
+              "Instance Launch and Terminate"
+            ],
+            "detail": {
+              "eventType": [
+                "EC2 Instance Terminate Successful",
+                "EC2 Instance Launch Unsuccessful"
+              ]
+            }
+          }
+        },
+        "globallyEditable": true,
+        "usage": {}
+      },
+      "cwetak": {
+        "name": "cwetak",
+        "type": "CLOUD_WATCH",
+        "config": {
+          "mode": 0,
+          "name": "tak",
+          "description": "",
+          "eventPattern": {
+            "source": [
+              "aws.s3"
+            ],
+            "detail-type": [
+              "AWS API Call via CloudTrail"
+            ],
+            "detail": {
+              "eventName": [
+                "DeleteBucket"
+              ],
+              "eventSource": [
+                "s3.amazonaws.com"
+              ]
+            }
+          }
+        },
+        "globallyEditable": true,
+        "usage": {
+          "a9f54b79-0ea7-40bf-8119-3904f6fb56ef": {
+            "operations": {},
+            "occurrence": 1,
+            "triggers": [
+              {
+                "mode": 0,
+                "name": "tak",
+                "description": "",
+                "eventPattern": {
+                  "source": [
+                    "aws.s3"
+                  ],
+                  "detail-type": [
+                    "AWS API Call via CloudTrail"
+                  ],
+                  "detail": {
+                    "eventName": [
+                      "DeleteBucket"
+                    ],
+                    "eventSource": [
+                      "s3.amazonaws.com"
+                    ]
+                  }
+                }
+              }
+            ]
+          }
+        }
       }
     },
     "packageJSON": {
@@ -112,7 +265,9 @@
       }
     },
     "changeExistingProject": false,
-    "additionalFiles": []
+    "additionalFiles": [],
+    "lambdaId": "b1e5c113-df23-4e66-ae76-9ab6201dbc2d",
+    "currentFileId": "a9f54b79-0ea7-40bf-8119-3904f6fb56ef"
   },
   "PROJECT_META": {
     "projectName": "SIGMA-91",
@@ -120,6 +275,6 @@
     "projectVersion": "1.0.0",
     "repoName": "SIGMA-91",
     "repoUrl": "https://github.com/sigmaidetest/SIGMA-91",
-    "lastSave": 1516963618160
+    "lastSave": 1517216518918
   }
 }
