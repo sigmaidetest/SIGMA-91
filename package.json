@@ -1,6 +1,6 @@
 {
-  "name": "SIGMA-91",
-  "version": "1.0.0",
+  "name": "ta",
+  "version": "1.9",
   "dependencies": {
     "aws-sdk": "2.176.0",
     "@slappforge/slappforge-sdk": "0.0.3"
