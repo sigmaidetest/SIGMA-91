@@ -23,19 +23,13 @@
         "isRemovable": true,
         "filePath": "ta/lambda.js",
         "code": "let AWS = require('aws-sdk');\nexports.handler = function(event, context, callback) {\n\tcallback(null,'Successfully executed');\n}",
-        "resources": [
-          "kinesisfa"
-        ],
         "triggers": [
           {
-            "resourceName": "kinesisfa",
-            "config": {
-              "StartingPosition": "TRIM_HORIZON",
-              "BatchSize": 100
-            }
+            "resourceName": "cweschedule",
+            "config": {}
           }
         ],
-        "version": 2
+        "version": 1
       }
     },
     "rootNode": "f3c4bb14-503b-4d05-a6de-b057b1a4920f",
@@ -44,31 +38,15 @@
     ],
     "currentFileId": "6d373153-fce1-490c-a813-f4f18259b00a",
     "resources": {
-      "kinesisfa": {
-        "name": "kinesisfa",
-        "type": "Kinesis",
+      "cweschedule": {
+        "name": "cweschedule",
+        "type": "CLOUD_WATCH",
         "config": {
           "mode": 0,
-          "StreamName": "fa",
-          "region": "us-east-1",
-          "triggerParams": {
-            "StartingPosition": "TRIM_HORIZON",
-            "BatchSize": 100
-          }
+          "arn": "arn:aws:events:us-east-1:359675929438:rule/schedule",
+          "name": "schedule"
         },
-        "globallyEditable": true,
-        "usage": {
-          "6d373153-fce1-490c-a813-f4f18259b00a": {
-            "operations": {},
-            "occurrence": 1,
-            "triggers": [
-              {
-                "StartingPosition": "TRIM_HORIZON",
-                "BatchSize": 100
-              }
-            ]
-          }
-        }
+        "globallyEditable": true
       }
     },
     "packageJSON": {
@@ -86,15 +64,15 @@
         }
       }
     },
-    "lambdaId": "6d373153-fce1-490c-a813-f4f18259b00a",
-    "changeExistingProject": false
+    "lambdaId": "6d373153-fce1-490c-a813-f4f18259b00a"
   },
   "PROJECT_META": {
     "projectName": "ta",
     "projectDescription": "ti",
     "projectVersion": "1.9",
+    "projectRegion": "us-east-1",
     "repoName": "SIGMA-91",
     "repoUrl": "https://github.com/sigmaidetest/SIGMA-91",
-    "lastSave": 1517362008531
+    "lastSave": 1517906115863
   }
 }
