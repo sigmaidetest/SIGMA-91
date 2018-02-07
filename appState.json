@@ -25,11 +25,7 @@
         "code": "exports.handler = (event, context, callback) => {\n}",
         "triggers": [
           {
-            "resourceName": "apigusEast1apipathpost",
-            "config": {}
-          },
-          {
-            "resourceName": "apigusEast1apinewpathget",
+            "resourceName": "apigusEast1signewpathget",
             "config": {}
           },
           {
@@ -37,11 +33,15 @@
             "config": {}
           },
           {
-            "resourceName": "apigusEast1apipathput",
+            "resourceName": "apigusEast1sigsigget",
+            "config": {}
+          },
+          {
+            "resourceName": "apigusEast1sigsigput",
             "config": {}
           }
         ],
-        "version": 67
+        "version": 1
       }
     },
     "rootNode": "5e54d49e-8477-4f74-b2fb-883f1c69b7b8",
@@ -50,83 +50,6 @@
     ],
     "currentFileId": "702971c8-fa81-4c9f-9935-f46156b62d1d",
     "resources": {
-      "s3sigmaS3ThumbInputJanaka": {
-        "name": "s3sigmaS3ThumbInputJanaka",
-        "type": "S3",
-        "config": {
-          "mode": 0,
-          "bucket": {
-            "region": "us-east-1",
-            "name": "sigma-s3-thumb-input-janaka"
-          }
-        },
-        "globallyEditable": false
-      },
-      "s3sigmaS3ThumbOutputJanaka": {
-        "name": "s3sigmaS3ThumbOutputJanaka",
-        "type": "S3",
-        "config": {
-          "mode": 0,
-          "bucket": {
-            "region": "us-east-1",
-            "name": "sigma-s3-thumb-output-janaka"
-          }
-        },
-        "globallyEditable": false
-      },
-      "apigusEast1apipathpost": {
-        "name": "apigusEast1apipathpost",
-        "type": "API_GATEWAY",
-        "config": {
-          "selectedRegion": "us-east-1",
-          "apiMode": 1,
-          "apiName": "api",
-          "apiId": "85m29nxeo4",
-          "endpointType": "EDGE",
-          "rootResourceId": "i31e3nazwh",
-          "existingResources": {
-            "/": "i31e3nazwh",
-            "/path": "pg3q09"
-          },
-          "resourceMode": 1,
-          "resourcePath": "/path",
-          "resourceName": "path",
-          "resourceId": "pg3q09",
-          "restMethod": "POST",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 1,
-          "stageName": "prod",
-          "stageDeploymentId": "mxls8a"
-        },
-        "globallyEditable": true
-      },
-      "apigusEast1apinewpathget": {
-        "name": "apigusEast1apinewpathget",
-        "type": "API_GATEWAY",
-        "config": {
-          "selectedRegion": "us-east-1",
-          "apiMode": 1,
-          "apiName": "api",
-          "apiId": "85m29nxeo4",
-          "endpointType": "EDGE",
-          "rootResourceId": "i31e3nazwh",
-          "existingResources": {
-            "/": "i31e3nazwh",
-            "/path": "pg3q09"
-          },
-          "resourceMode": 0,
-          "resourceName": "newpath",
-          "resourcePath": "/newpath",
-          "restMethod": "GET",
-          "proxyIntegration": false,
-          "enableCORS": false,
-          "stageMode": 1,
-          "stageName": "prod",
-          "stageDeploymentId": "mxls8a"
-        },
-        "globallyEditable": true
-      },
       "apigusEast1newapinewpathget": {
         "name": "apigusEast1newapinewpathget",
         "type": "API_GATEWAY",
@@ -146,29 +69,82 @@
         },
         "globallyEditable": true
       },
-      "apigusEast1apipathput": {
-        "name": "apigusEast1apipathput",
+      "apigusEast1sigsigget": {
+        "name": "apigusEast1sigsigget",
         "type": "API_GATEWAY",
         "config": {
           "selectedRegion": "us-east-1",
           "apiMode": 1,
-          "apiName": "api",
-          "apiId": "85m29nxeo4",
+          "apiName": "sig",
+          "apiId": "r22952wrn5",
           "endpointType": "EDGE",
-          "rootResourceId": "i31e3nazwh",
+          "rootResourceId": "f8i0oeybrj",
           "existingResources": {
-            "/": "i31e3nazwh",
-            "/path": "pg3q09"
+            "/": "f8i0oeybrj",
+            "/sig": "fiq0wf"
           },
           "resourceMode": 1,
-          "resourcePath": "/path",
-          "resourceName": "path",
-          "resourceId": "pg3q09",
+          "resourcePath": "/sig",
+          "resourceName": "sig",
+          "resourceId": "fiq0wf",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "test",
+          "stageDeploymentId": "b4qmfa"
+        },
+        "globallyEditable": true
+      },
+      "apigusEast1sigsigput": {
+        "name": "apigusEast1sigsigput",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "sig",
+          "apiId": "r22952wrn5",
+          "endpointType": "EDGE",
+          "rootResourceId": "f8i0oeybrj",
+          "existingResources": {
+            "/": "f8i0oeybrj",
+            "/sig": "fiq0wf"
+          },
+          "resourceMode": 1,
+          "resourcePath": "/sig",
+          "resourceName": "sig",
+          "resourceId": "fiq0wf",
           "restMethod": "PUT",
           "proxyIntegration": false,
           "enableCORS": false,
           "stageMode": 0,
           "stageName": "prod"
+        },
+        "globallyEditable": true
+      },
+      "apigusEast1signewpathget": {
+        "name": "apigusEast1signewpathget",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 1,
+          "apiName": "sig",
+          "apiId": "r22952wrn5",
+          "endpointType": "EDGE",
+          "rootResourceId": "f8i0oeybrj",
+          "existingResources": {
+            "/": "f8i0oeybrj",
+            "/sig": "fiq0wf"
+          },
+          "resourceMode": 0,
+          "resourceName": "newpath",
+          "resourcePath": "/newpath",
+          "restMethod": "GET",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 1,
+          "stageName": "test",
+          "stageDeploymentId": "b4qmfa"
         },
         "globallyEditable": true
       }
@@ -788,6 +764,6 @@
     "projectRegion": "us-east-1",
     "repoName": "SIGMA-91",
     "repoUrl": "https://github.com/sigmaidetest/SIGMA-91",
-    "lastSave": 1517997856126
+    "lastSave": 1517999291220
   }
 }
